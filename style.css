@@ -35,7 +35,7 @@ body {
 }
 
 .container .infos {
-  background: #fff;
+  background: red;
   border-radius: 0px 6px 6px 0;
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@ body {
 }
 
 .container .infos p:first-child {
-  width: 320px;
+  width: 330px;
   font-size: 20px;
   font-weight: 700;
   color: var(--dark-Grayish);
@@ -86,10 +86,7 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
-}
-
-.share-icon:hover .share-active {
-  transform: rotateY(180deg);
+  z-index: 1;
 }
 
 .share-active {
@@ -108,6 +105,7 @@ body {
   cursor: pointer;
   visibility: hidden;
   border-radius: 6px;
+  z-index: 0;
 }
 
 .share-active h5 {
@@ -118,4 +116,55 @@ body {
 
 .active {
   visibility: visible;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+    padding: 20px 0;
+  }
+
+  .container img {
+    width: 350px;
+    max-width: 100vw;
+    height: 250px;
+  }
+  .container .infos {
+    align-items: center;
+    padding: 0px;
+    width: 350px;
+  }
+
+  .container .infos p:first-child {
+    width: 300px;
+    font-size: 19px;
+  }
+
+  .container .infos p,
+  .social-media,
+  .social-media .profile {
+    width: 300px;
+  }
+
+  .share-icon {
+    background: transparent;
+  }
+  .share-icon ion-icon {
+    color: var(--dark-Grayish);
+  }
+
+  .share-active {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 70px;
+    top: calc(100% - 70px);
+  }
+
+  .share-active.active + .profile {
+    display: none;
+  }
 }
